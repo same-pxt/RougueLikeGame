@@ -14,5 +14,4 @@ jobs:
           cd demo
           mvn clean
           mvn install
-          java -jar ./target/demo-1.0-SNAPSHOT.jar
         
