@@ -105,7 +105,7 @@ public class AsciiPanel extends JPanel {
     private int heightInCharacters;
     private int charWidth = 9;
     private int charHeight = 16;
-    private String terminalFontFile = "demo/src/main/resources/cp437_9x16.png";
+    private String terminalFontFile = "resources/cp437_9x16.png";
     private Color defaultBackgroundColor;
     private Color defaultForegroundColor;
     private int cursorX;
