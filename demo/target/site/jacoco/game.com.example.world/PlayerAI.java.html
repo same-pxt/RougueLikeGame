@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PlayerAI.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo</a> &gt; <a href="index.source.html" class="el_package">game.com.example.world</a> &gt; <span class="el_source">PlayerAI.java</span></div><h1>PlayerAI.java</h1><pre class="source lang-java linenums">package game.com.example.world;
+
+import java.util.List;
+import java.util.Random;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class PlayerAI extends CreatureAI {
+
+    private List&lt;String&gt; messages;
+
+    public PlayerAI(Creature creature, List&lt;String&gt; messages) {
+<span class="fc" id="L13">        super(creature);</span>
+<span class="fc" id="L14">        this.messages = messages;</span>
+<span class="fc" id="L15">    }</span>
+
+    public synchronized void onEnter(int x, int y, Tile tile) {
+        // LocalDateTime currentDateTime = LocalDateTime.now();
+        // DateTimeFormatter formatter = DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd HH:mm:ss.SSS&quot;);
+        // String formattedDateTime = currentDateTime.format(formatter);
+<span class="nc bnc" id="L21" title="All 2 branches missed.">        if (tile.isGround()) {</span>
+            //System.out.println(this + &quot;arrive at&quot;+x +&quot; &quot;+y + &quot;at&quot; +formattedDateTime);
+<span class="nc" id="L23">            creature.setX(x);</span>
+<span class="nc" id="L24">            creature.setY(y);</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        } else if (tile.isDiggable()) {</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">            if(tile.isBounus())</span>
+            {
+<span class="nc" id="L28">                creature.modifyHP(+10);</span>
+            }
+<span class="nc" id="L30">            creature.dig(x, y);</span>
+        }        
+<span class="nc" id="L32">    }</span>
+    public void automove(int x,int y)
+    {
+        
+<span class="nc" id="L36">    }</span>
+    public synchronized void onNotify(String message) {
+<span class="nc" id="L38">        this.messages.add(message);</span>
+<span class="nc" id="L39">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

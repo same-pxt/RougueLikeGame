@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Tile.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo</a> &gt; <a href="index.source.html" class="el_package">game.com.example.world</a> &gt; <span class="el_source">Tile.java</span></div><h1>Tile.java</h1><pre class="source lang-java linenums">package game.com.example.world;
+
+import java.awt.Color;
+
+import game.asciiPanel.AsciiPanel;
+
+<span class="fc" id="L7">public enum Tile {</span>
+
+<span class="fc" id="L9">    FLOOR((char) 250, AsciiPanel.green),</span>
+
+<span class="fc" id="L11">    WALL((char) 177, AsciiPanel.brightBlack),</span>
+
+<span class="fc" id="L13">    BOUNDS((char) 3, AsciiPanel.brightRed);</span>
+
+    private char glyph;
+
+    public char glyph() {
+<span class="nc" id="L18">        return glyph;</span>
+    }
+
+    private Color color;
+
+    public Color color() {
+<span class="nc" id="L24">        return color;</span>
+    }
+
+    public boolean isDiggable() {
+<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        return this != Tile.WALL;</span>
+    }
+
+    public boolean isGround() {
+<span class="pc bpc" id="L32" title="1 of 4 branches missed.">        return this != Tile.WALL &amp;&amp; this != Tile.BOUNDS;</span>
+    }
+    public boolean isBounus() {
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        return this ==Tile.BOUNDS;</span>
+    }
+<span class="fc" id="L37">    Tile(char glyph, Color color) {</span>
+<span class="fc" id="L38">        this.glyph = glyph;</span>
+<span class="fc" id="L39">        this.color = color;</span>
+<span class="fc" id="L40">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

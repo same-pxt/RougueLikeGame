@@ -116,4 +116,8 @@ public class PlayScreen implements Screen,Runnable{
         //Thread player2=new Thread(creatureFactory.newPlayer(messages));
         creatCreature();
     }
+    public int getNum()
+    {
+        return this.world.getCreatures().size();
+    }
 }
