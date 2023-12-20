@@ -1,8 +1,8 @@
-package screen;
+package game.com.example.screen;
 
-import asciiPanel.AsciiPanel;
-import world.*;
-import asciiPanel.AsciiPanel;
+import game.asciiPanel.AsciiPanel;
+import game.com.example.world.*;
+
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;

@@ -1,5 +1,4 @@
-package asciiPanel;
-
+package game.asciiPanel;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -106,7 +105,7 @@ public class AsciiPanel extends JPanel {
     private int heightInCharacters;
     private int charWidth = 9;
     private int charHeight = 16;
-    private String terminalFontFile = "cp437_9x16.png";
+    private String terminalFontFile = "demo/src/main/resources/cp437_9x16.png";
     private Color defaultBackgroundColor;
     private Color defaultForegroundColor;
     private int cursorX;

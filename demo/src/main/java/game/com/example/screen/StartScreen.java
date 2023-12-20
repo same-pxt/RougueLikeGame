@@ -1,5 +1,5 @@
-package screen;
-import asciiPanel.AsciiPanel;
+package game.com.example.screen;
+import game.asciiPanel.*;
 public class StartScreen extends RestartScreen {
 
     @Override

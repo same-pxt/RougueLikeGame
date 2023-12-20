@@ -1,5 +1,4 @@
-
-package world;
+package game.com.example.world;
 
 import java.awt.Point;
 import java.util.ArrayList;

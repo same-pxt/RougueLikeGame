@@ -1,4 +1,4 @@
-package world;
+package game.com.example.world;
 
 public class Node {
     public final int x;

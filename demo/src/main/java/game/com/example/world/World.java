@@ -1,4 +1,4 @@
-package world;
+package game.com.example.world;
 
 import java.awt.Color;
 import java.util.ArrayList;

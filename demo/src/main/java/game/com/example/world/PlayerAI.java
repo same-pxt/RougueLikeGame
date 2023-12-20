@@ -1,4 +1,4 @@
-package world;
+package game.com.example.world;
 
 import java.util.List;
 import java.util.Random;

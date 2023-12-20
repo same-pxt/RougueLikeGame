@@ -1,9 +1,9 @@
-package world;
+package game.com.example.world;
 
 import java.util.List;
 
-import asciiPanel.AsciiPanel;
-import world.Creature.creatureType;
+import game.asciiPanel.*;
+import game.com.example.world.Creature.creatureType;
 
 
 public class CreatureFactory {

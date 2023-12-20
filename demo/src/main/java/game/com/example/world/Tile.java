@@ -1,7 +1,8 @@
-package world;
+package game.com.example.world;
 
-import asciiPanel.AsciiPanel;
 import java.awt.Color;
+
+import game.asciiPanel.AsciiPanel;
 
 public enum Tile {
 

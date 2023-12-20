@@ -1,4 +1,5 @@
- import java.awt.event.KeyEvent;
+package game;
+import java.awt.event.KeyEvent;
  import java.awt.event.KeyListener;
 import java.util.TimerTask;
 import java.util.concurrent.Executors;
@@ -7,18 +8,13 @@ import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
  import javax.swing.JButton;
-
  import  java.util.Timer;
 import java.util.TimerTask;
 
- import asciiPanel.AsciiFont;
- import asciiPanel.AsciiPanel;
- import screen.Screen;
- import screen.StartScreen;
-
- 
- 
-
+import game.asciiPanel.AsciiFont;
+import game.asciiPanel.AsciiPanel;
+import game.com.example.screen.Screen;
+import game.com.example.screen.StartScreen;
  public class ApplicationMain extends JFrame implements KeyListener {
  
      private AsciiPanel terminal;
