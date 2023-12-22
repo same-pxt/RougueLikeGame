@@ -6,16 +6,18 @@ import java.security.PublicKey;
 import java.util.Random;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Serializable;
+public class Creature extends Thread implements Serializable{
 
-public class Creature extends Thread{
-
-    enum creatureType
+    public enum creatureType
     {
         PLAYER,
         FUNGUS,
     }
     private World world;
-
+    private static int nextId = 1;
     private int x;
 
     public void setX(int x) {
@@ -118,6 +120,7 @@ public class Creature extends Thread{
         {
             return;
         }
+
         if(x+mx<0 || x+mx >29 || y+my<0 || y+my >29)
         {   
             Creature other = world.creature(x, y);
@@ -150,10 +153,6 @@ public class Creature extends Thread{
     public synchronized void attack(Creature other) {
         int damage = Math.max(0, this.attackValue() - other.defenseValue());
         damage = (int) (Math.random() * damage) + 1;
-        LocalDateTime currentDateTime = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
-        String formattedDateTime = currentDateTime.format(formatter);
-        System.out.println(this + "attack"+ x +" "+y + "at" +formattedDateTime + " with" + damage);
         other.modifyHP(-damage);
         this.notify("You attack the '%s' for %d damage.", other.glyph, damage);
         other.notify("The '%s' attacks you for %d damage.", glyph, damage);
@@ -172,6 +171,7 @@ public class Creature extends Thread{
     }
 
     public creatureType type;
+    public int id;
     public Creature(creatureType type,World world, char glyph, Color color, int maxHP, int attack, int defense, int visionRadius) {
         this.world = world;
         this.glyph = glyph;
@@ -182,6 +182,8 @@ public class Creature extends Thread{
         this.defenseValue = defense;
         this.visionRadius = visionRadius;
         this.type=type;
+        this.id=nextId;
+        nextId++;
     }
 
     @Override

@@ -2,7 +2,7 @@ package game.com.example.screen;
 import java.awt.event.KeyEvent;
 
 import game.asciiPanel.*;
-public abstract class RestartScreen implements Screen,Runnable {
+public abstract class RestartScreen implements Screen {
 
     @Override
     public abstract void displayOutput(AsciiPanel terminal);
@@ -12,15 +12,9 @@ public abstract class RestartScreen implements Screen,Runnable {
         switch (key.getKeyCode()) {
             case KeyEvent.VK_ENTER:
                 PlayScreen t=new PlayScreen();
-                t.run();
                 return t;
             default:
                 return this;
         }
-    }
-    @Override
-    public void run()
-    {
-        
     }
 }

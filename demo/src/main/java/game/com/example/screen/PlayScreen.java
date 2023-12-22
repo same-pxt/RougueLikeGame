@@ -2,16 +2,19 @@ package game.com.example.screen;
 
 import game.asciiPanel.AsciiPanel;
 import game.com.example.world.*;
+import game.com.example.world.Creature.creatureType;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayScreen implements Screen,Runnable{
+public class PlayScreen implements Screen{
 
-    private World world;
-    private Creature player;
+    public World world;
+    public Creature player;
     private int screenWidth;
     private int screenHeight;
     private List<String> messages;
@@ -25,9 +28,8 @@ public class PlayScreen implements Screen,Runnable{
         this.screenWidth=30;
         this.messages = new ArrayList<String>();
         creatWorld();
-        creatureFactory=new CreatureFactory(this.world);
-        
-        
+        creatureFactory=new CreatureFactory(this.world);  
+        creatCreature();
     }
     @Override
     public void displayOutput(AsciiPanel terminal) {
@@ -60,6 +62,8 @@ public class PlayScreen implements Screen,Runnable{
             case KeyEvent.VK_S:
                 player.moveBy(0, 1);
                 break;
+            case KeyEvent.VK_ESCAPE:
+                return new ExcScreen(this);
             default :
                 player.moveBy(0, 0);
                 break;
@@ -73,7 +77,7 @@ public class PlayScreen implements Screen,Runnable{
         this.world = w.makeCaves().build();
     }
 
-    private void displayTiles(AsciiPanel terminal, int left, int top) {
+    private void  displayTiles(AsciiPanel terminal, int left, int top) {
         // Show terrain
         for (int x = 0; x < screenWidth; x++) {
             for (int y = 0; y < screenHeight; y++) {
@@ -88,7 +92,21 @@ public class PlayScreen implements Screen,Runnable{
             if (creature.x() >= left && creature.x() < left + screenWidth && creature.y() >= top
                     && creature.y() < top + screenHeight) {
                 terminal.write(creature.glyph(), creature.x() - left, creature.y() - top, creature.color());
+                try {
+                    FileWriter writer = new FileWriter("data.txt",true);
+                    writer.write(creature.id+" "+creature.x() +" "+creature.y()+"\n");
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+        }
+        try {
+            FileWriter writer = new FileWriter("data.txt",true);
+            writer.write("\n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         // Creatures can choose their next action now
         world.update();
@@ -108,13 +126,6 @@ public class PlayScreen implements Screen,Runnable{
 
     public int getScrollY() {
         return Math.max(0, Math.min(player.y() - screenHeight / 2, world.height() - screenHeight));
-    }
-    @Override
-    public void run()
-    { 
-        //Thread player1=new Thread(creatureFactory.newPlayer(messages));
-        //Thread player2=new Thread(creatureFactory.newPlayer(messages));
-        creatCreature();
     }
     public int getNum()
     {

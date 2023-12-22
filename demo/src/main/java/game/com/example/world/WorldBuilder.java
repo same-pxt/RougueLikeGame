@@ -21,7 +21,7 @@ public class WorldBuilder {
     private WorldBuilder randomizeTiles() {
         MazeGenerator mazeGenerator = new MazeGenerator(28);
         int [][] my_maze=mazeGenerator.generateMaze();
-        System.out.println("RAW MAZE\n" + mazeGenerator.getRawMaze());
+        //System.out.println("RAW MAZE\n" + mazeGenerator.getRawMaze());
         for (int width = 0; width < this.width; width++) {
             for (int height = 0; height < this.height; height++) {
                     tiles[width][height] = Tile.FLOOR;

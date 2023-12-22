@@ -16,25 +16,6 @@ public class FungusAI extends CreatureAI {
         this.factory = factory;
     }
 
-    public void onUpdate() {
-        // if (this.spreadcount < FungusAI.spores && Math.random() < FungusAI.spreadchance) {
-        //     spread();
-        // }
-    }
-
-    private void spread() {
-        int newx = creature.x() + (int) (Math.random() * 11) - 5;
-        int newy = creature.y() + (int) (Math.random() * 11) - 5;
-
-        if (!creature.canEnter(newx, newy)) {
-            return;
-        }
-
-        Creature child = this.factory.newFungus();
-        child.setX(newx);
-        child.setY(newy);
-        spreadcount++;
-    }
 
     public synchronized void onEnter(int x, int y, Tile tile) {
         // LocalDateTime currentDateTime = LocalDateTime.now();

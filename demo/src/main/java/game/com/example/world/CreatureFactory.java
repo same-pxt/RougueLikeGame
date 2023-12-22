@@ -4,9 +4,9 @@ import java.util.List;
 
 import game.asciiPanel.*;
 import game.com.example.world.Creature.creatureType;
+import java.io.Serializable;
 
-
-public class CreatureFactory {
+public class CreatureFactory implements Serializable{
 
     private World world;
 

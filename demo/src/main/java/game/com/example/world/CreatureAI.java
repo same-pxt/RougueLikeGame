@@ -2,8 +2,8 @@ package game.com.example.world;
 
 import java.awt.Point;
 import java.util.Random;
-
-class CreatureAI {
+import java.io.Serializable;
+class CreatureAI implements Serializable{
 
     protected Creature creature;
 

@@ -1,6 +1,8 @@
 package game.com.example;
 import java.awt.event.KeyEvent;
  import java.awt.event.KeyListener;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.TimerTask;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -72,9 +74,20 @@ import game.com.example.screen.StartScreen;
         service.scheduleAtFixedRate(runnable, 0, 300, TimeUnit.MILLISECONDS);
     }
      public static void main(String[] args) {
+        try {
+            // 创建一个 FileWriter 对象，将文件内容设置为空
+            FileWriter writer = new FileWriter("data.txt");
+            writer.write(""); // 将内容设置为空
+            writer.close();
+            
+            System.out.println("文件内容已清除。");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
          ApplicationMain app = new ApplicationMain();
          app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          app.setVisible(true);
+
      }
  
  }

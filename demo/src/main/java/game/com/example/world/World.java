@@ -3,13 +3,13 @@ package game.com.example.world;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
-
-public class World {
+import java.io.Serializable;
+public class World implements Serializable{
 
     private Tile[][] tiles;
     private int width;
     private int height;
-    private List<Creature> creatures;
+    public List<Creature> creatures;
     
     public int FungSize;
     public int playerSize;
