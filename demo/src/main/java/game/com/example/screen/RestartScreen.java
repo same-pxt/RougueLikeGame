@@ -13,6 +13,12 @@ public abstract class RestartScreen implements Screen {
             case KeyEvent.VK_ENTER:
                 PlayScreen t=new PlayScreen();
                 return t;
+            case KeyEvent.VK_1:
+                OnlineScreen o=new OnlineScreen(1);
+                return o;
+            case KeyEvent.VK_2:
+                OnlineScreen e=new OnlineScreen(0);
+                return e;
             default:
                 return this;
         }

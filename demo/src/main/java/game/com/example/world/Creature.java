@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PipedInputStream;
 import java.io.Serializable;
 public class Creature extends Thread implements Serializable{
 
@@ -18,6 +19,7 @@ public class Creature extends Thread implements Serializable{
     }
     private World world;
     private static int nextId = 1;
+    public static int playId = 1;
     private int x;
 
     public void setX(int x) {
@@ -172,6 +174,7 @@ public class Creature extends Thread implements Serializable{
 
     public creatureType type;
     public int id;
+    public int playerid;
     public Creature(creatureType type,World world, char glyph, Color color, int maxHP, int attack, int defense, int visionRadius) {
         this.world = world;
         this.glyph = glyph;
@@ -183,6 +186,7 @@ public class Creature extends Thread implements Serializable{
         this.visionRadius = visionRadius;
         this.type=type;
         this.id=nextId;
+        this.playerid=playId;
         nextId++;
     }
 
