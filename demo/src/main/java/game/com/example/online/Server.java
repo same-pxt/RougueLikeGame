@@ -100,7 +100,7 @@ public class Server extends Thread{
                 keyIterator.remove();
             }
             try {
-                Thread.sleep(1000);
+                Thread.sleep(500);
                 try {
                     sendObjectToClient(socketChannel,this.os.world);
                 } catch (IOException e) {
