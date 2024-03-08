@@ -156,6 +156,7 @@ public class Creature extends Thread implements Serializable{
         int damage = Math.max(0, this.attackValue() - other.defenseValue());
         damage = (int) (Math.random() * damage) + 1;
         other.modifyHP(-damage);
+        System.out.printf("You attack the '%s' for %d damage.", other.glyph, damage);
         this.notify("You attack the '%s' for %d damage.", other.glyph, damage);
         other.notify("The '%s' attacks you for %d damage.", glyph, damage);
     }
